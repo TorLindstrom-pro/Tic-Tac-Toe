@@ -5,7 +5,7 @@ namespace Tests;
 public class GameTests
 {
 	[Fact]
-	public void PlayMove_UsesTile()
+	public void PlayMove_MarksTile()
 	{
 		// Arrange
 		var game = new Game();
