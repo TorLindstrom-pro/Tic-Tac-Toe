@@ -6,6 +6,7 @@ public class Board(IOutput output)
 
 	public void Render()
 	{
+		output.Clear();
 		output.Print("   |   |   ");
 		output.Print(HorizontalDivider);
 		output.Print("   |   |   ");
@@ -21,9 +22,15 @@ internal class Output() : IOutput
 	{
 		Console.WriteLine(line);
 	}
+
+	public void Clear()
+	{
+		Console.Clear();
+	}
 }
 
 public interface IOutput
 {
 	void Print(string line);
+	void Clear();
 }

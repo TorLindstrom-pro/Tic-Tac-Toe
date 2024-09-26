@@ -18,6 +18,7 @@ public class BoardTests
 		// Assert
 		Received.InOrder(() =>
 		{
+			outputMock.Clear();
 			outputMock.Print("   |   |   ");
 			outputMock.Print("---+---+---");
 			outputMock.Print("   |   |   ");
