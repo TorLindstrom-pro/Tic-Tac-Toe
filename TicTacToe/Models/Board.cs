@@ -1,4 +1,6 @@
-﻿namespace TicTacToe.Models;
+﻿using TicTacToe.Infrastructure;
+
+namespace TicTacToe.Models;
 
 public class Board(IOutput output, Game game)
 {

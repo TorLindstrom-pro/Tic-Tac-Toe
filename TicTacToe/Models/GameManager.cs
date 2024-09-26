@@ -1,4 +1,6 @@
-﻿namespace TicTacToe.Models;
+﻿using TicTacToe.Infrastructure;
+
+namespace TicTacToe.Models;
 
 internal abstract class GameManager
 {

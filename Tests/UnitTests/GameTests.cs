@@ -1,6 +1,6 @@
 using TicTacToe.Models;
 
-namespace Tests;
+namespace Tests.UnitTests;
 
 public class GameTests
 {

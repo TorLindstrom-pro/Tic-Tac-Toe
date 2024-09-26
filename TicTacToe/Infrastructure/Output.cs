@@ -1,4 +1,4 @@
-﻿namespace TicTacToe.Models;
+﻿namespace TicTacToe.Infrastructure;
 
 internal class Output : IOutput
 {

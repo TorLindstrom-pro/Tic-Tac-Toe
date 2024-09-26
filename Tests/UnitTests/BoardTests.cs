@@ -1,7 +1,8 @@
 using NSubstitute;
+using TicTacToe.Infrastructure;
 using TicTacToe.Models;
 
-namespace Tests;
+namespace Tests.UnitTests;
 
 public class BoardTests
 {
