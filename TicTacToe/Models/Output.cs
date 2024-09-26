@@ -1,6 +1,6 @@
 ﻿namespace TicTacToe.Models;
 
-internal class Output() : IOutput
+internal class Output : IOutput
 {
 	public void Print(string line)
 	{
