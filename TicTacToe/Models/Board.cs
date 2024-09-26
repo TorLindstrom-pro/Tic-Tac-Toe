@@ -15,22 +15,3 @@ public class Board(IOutput output)
 		
 	}
 }
-
-internal class Output() : IOutput
-{
-	public void Print(string line)
-	{
-		Console.WriteLine(line);
-	}
-
-	public void Clear()
-	{
-		Console.Clear();
-	}
-}
-
-public interface IOutput
-{
-	void Print(string line);
-	void Clear();
-}
