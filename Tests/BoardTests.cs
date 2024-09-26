@@ -6,7 +6,7 @@ namespace Tests;
 public class BoardTests
 {
 	[Fact]
-	public void printsGrid()
+	public void Render_PrintsGrid()
 	{
 		// Arrange
 		var outputMock = Substitute.For<IOutput>();
