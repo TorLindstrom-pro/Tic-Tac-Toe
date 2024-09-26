@@ -16,10 +16,14 @@ public class BoardTests
 		board.Render();
 
 		// Assert
-		outputMock.Received().Print("   |   |   ");
-		outputMock.Received().Print("---+---+---");
-		outputMock.Received().Print("   |   |   ");
-		outputMock.Received().Print("---+---+---");
-		outputMock.Received().Print("   |   |   ");
+		Received.InOrder(() =>
+		{
+			outputMock.Print("   |   |   ");
+			outputMock.Print("---+---+---");
+			outputMock.Print("   |   |   ");
+			outputMock.Print("---+---+---");
+			outputMock.Print("   |   |   ");
+		});
+		
 	}
 }
