@@ -4,7 +4,7 @@ namespace TicTacToe.Models;
 
 internal abstract class GameManager
 {
-	public static void StartGame()
+	public static void PlayGame()
 	{
 		var output = new Output();
 		var game = new Game();
