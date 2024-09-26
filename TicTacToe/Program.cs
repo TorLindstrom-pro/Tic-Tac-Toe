@@ -3,6 +3,7 @@
 using TicTacToe.Models;
 
 var output = new Output();
-var board = new Board(output);
+var game = new Game();
+var board = new Board(output, game);
 
 board.Render();
