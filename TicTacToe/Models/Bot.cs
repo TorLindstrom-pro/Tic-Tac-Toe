@@ -5,14 +5,9 @@ public class Bot(string marker)
 	public string Marker { get; } = marker;
 	public Bot NextBot { get; set; }
 
-	public Bot CreateNextBotLink(string marker)
+	public void LinkWith(Bot bot)
 	{
-		var nextBot = new Bot(marker)
-		{
-			NextBot = this
-		};
-
-		NextBot = nextBot;
-		return nextBot;
+		NextBot = bot;
+		bot.NextBot = this;
 	}
 }

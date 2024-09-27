@@ -8,14 +8,16 @@ public class BotTests
 	public void CreateNextBotLink_LinksBots()
 	{
 		// Arrange
-		var bot = new Bot("X");
-		
+		var firstBot = new Bot("X");
+		var secondBot = new Bot("O");
+
 		// Act
-		var result = bot.CreateNextBotLink("O");
+		firstBot.LinkWith(secondBot);
 		
 		// Assert
-		Assert.Equal("O", result.Marker);
-		Assert.Equal(bot, result.NextBot);
-		Assert.Equal(result, bot.NextBot);
+		var linkedBot = firstBot.NextBot;
+		Assert.Equal(secondBot, linkedBot);
+		Assert.Equal(firstBot, secondBot.NextBot);
+		Assert.Equal(secondBot, firstBot.NextBot);
 	}
 }

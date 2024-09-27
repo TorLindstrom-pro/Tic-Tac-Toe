@@ -22,7 +22,7 @@ public class GameManager
 	public  void PlayGame()
 	{
 		var currentBot = new Bot("X");
-		currentBot.CreateNextBotLink("O");
+		currentBot.LinkWith(new Bot("O"));
 		
 		while (_game.AvailableTiles.Count > 0)
 		{
