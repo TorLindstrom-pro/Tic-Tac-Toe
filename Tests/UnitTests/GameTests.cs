@@ -19,18 +19,15 @@ public class GameTests
 	}
 	
 	[Fact]
-	public void ShuffleTiles_SortsAvailableTilesRandomly()
+	public void ConstuctingAGame_SortsAvailableTilesRandomly()
 	{
-		// Arrange
-		var game = new Game();
-
 		// Act
-		game.ShuffleTiles();
+		var game = new Game();
 
 		// Assert
 		Assert.NotEqual(
 			["0,0", "0,1", "0,2", "1,0", "1,1", "1,2", "2,0", "2,1", "2,2"],
-			game.availableTiles.Select(t => t.X + "," + t.Y));
+			game.AvailableTiles.Select(t => t.X + "," + t.Y));
 	}
 	
 	[Fact]
@@ -44,5 +41,19 @@ public class GameTests
 
 		// Assert
 		Assert.Equal(game.Board.First(t => t is { X: 2, Y: 1 }), result);
+	}
+	
+	[Fact]
+	public void GetAvailableTile_MakesTileUnavailable()
+	{
+		// Arrange
+		var game = new Game();
+		var availableTilesCount = game.AvailableTiles.Count;
+
+		// Act
+		var result = game.GetAvailableTile();
+
+		// Assert
+		Assert.Equal(availableTilesCount - 1, game.AvailableTiles.Count);
 	}
 }

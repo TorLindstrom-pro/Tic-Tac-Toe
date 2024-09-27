@@ -15,20 +15,25 @@ public class Game
 		new(2, 2)
 	];
 
-	public List<Tile> availableTiles { get; set; }
+	public Queue<Tile> AvailableTiles { get; set; }
+	
+	public Game()
+	{
+		AvailableTiles = new Queue<Tile>(Board.OrderBy(x => Guid.NewGuid()).ToList());
+	}
 
 	public void PlayMove(string marker, Tile tile)
 	{
 		tile.Marker = marker;
 	}
-	
-	public void ShuffleTiles()
-	{
-		availableTiles = Board.OrderBy(x => Guid.NewGuid()).ToList();
-	}
 
 	public Tile GetTile(int x, int y)
 	{
 		return Board.First(t => t.X == x && t.Y == y);
+	}
+
+	public Tile GetAvailableTile()
+	{
+		return AvailableTiles.Dequeue();
 	}
 }
