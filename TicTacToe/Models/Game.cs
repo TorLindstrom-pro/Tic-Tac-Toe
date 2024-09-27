@@ -36,4 +36,22 @@ public class Game
 	{
 		return AvailableTiles.Dequeue();
 	}
+
+	public bool CheckWin(string marker)
+	{
+		var rows = Board.GroupBy(t => t.X);
+		var anyRow = rows.Any(r => r.All(t => t.Marker == marker));
+		
+		var columns = Board.GroupBy(t => t.Y);
+		var anyColumn = columns.Any(r => r.All(t => t.Marker == marker));
+		
+		var diagonals = new List<List<Tile>>
+		{
+			new() {GetTile(0, 0), GetTile(1, 1), GetTile(2, 2)},
+			new() {GetTile(0, 2), GetTile(1, 1), GetTile(2, 0)}
+		};
+		var anyDiagonal = diagonals.Any(d => d.All(t => t.Marker == marker));
+		
+		return anyRow || anyColumn || anyDiagonal;
+	}
 }
