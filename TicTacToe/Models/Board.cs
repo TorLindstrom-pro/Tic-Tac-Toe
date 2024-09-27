@@ -19,6 +19,6 @@ public class Board(IOutput output, Game game)
 
 	private string GetMark(int x, int y)
 	{
-		return game.Board[x, y] ?? " ";
+		return game.Board.First(t => t.X == x && t.Y == y).Marker ?? " ";
 	}
 }
