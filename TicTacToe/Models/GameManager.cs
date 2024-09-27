@@ -1,27 +1,22 @@
-﻿using TicTacToe.Infrastructure;
-
-namespace TicTacToe.Models;
+﻿namespace TicTacToe.Models;
 
 public class GameManager
 {
 	
 	private readonly Renderer _renderer;
-	private readonly IOutput _output;
 	private readonly Game _game;
 	public  Bot? Winner;
 	
-	public GameManager(IOutput output, Game game, Renderer renderer)
+	public GameManager(Game game, Renderer renderer)
 	{
-		_output = output;
 		_game = game;
 		_renderer = renderer;
 	}
 	
 	public GameManager()
 	{
-		_output = new Output();
 		_game = new Game();
-		_renderer = new Renderer(_output, _game);
+		_renderer = new Renderer(_game);
 	}
 
 	public  void PlayGame()

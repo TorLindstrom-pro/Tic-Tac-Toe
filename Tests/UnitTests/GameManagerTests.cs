@@ -14,7 +14,7 @@ public class GameManagerTests
 		var outputMock = Substitute.For<IOutput>();
 		var board = new Renderer(outputMock, game);
 
-		var gameManager = new GameManager(outputMock, game, board);
+		var gameManager = new GameManager(game, board);
 
 		// Act
 		gameManager.PlayGame();

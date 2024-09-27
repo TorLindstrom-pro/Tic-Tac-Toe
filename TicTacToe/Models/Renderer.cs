@@ -6,6 +6,10 @@ public class Renderer(IOutput output, Game game)
 {
 	private const string HorizontalDivider = "---+---+---";
 
+	public Renderer(Game game) : this(new Output(), game)
+	{
+	}
+	
 	public void Render()
 	{
 		output.Clear();
