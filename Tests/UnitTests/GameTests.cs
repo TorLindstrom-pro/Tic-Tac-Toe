@@ -19,7 +19,7 @@ public class GameTests
 	}
 	
 	[Fact]
-	public void ConstuctingAGame_SortsAvailableTilesRandomly()
+	public void ConstructingAGame_SortsAvailableTilesRandomly()
 	{
 		// Act
 		var game = new Game();
