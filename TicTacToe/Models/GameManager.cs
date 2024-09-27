@@ -26,7 +26,8 @@ public class GameManager
 
 	public  void PlayGame()
 	{
-		var currentBot = new Bot("X").CreateNextBotLink("O");
+		var currentBot = new Bot("X");
+		currentBot.CreateNextBotLink("O");
 		
 		while (_game.AvailableTiles.Count > 0)
 		{
