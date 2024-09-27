@@ -26,4 +26,9 @@ public class Game
 	{
 		availableTiles = Board.OrderBy(x => Guid.NewGuid()).ToList();
 	}
+
+	public Tile GetTile(int x, int y)
+	{
+		return Board.First(t => t.X == x && t.Y == y);
+	}
 }

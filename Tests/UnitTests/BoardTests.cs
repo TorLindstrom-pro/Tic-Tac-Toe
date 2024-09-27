@@ -36,9 +36,9 @@ public class BoardTests
 		var outputMock = Substitute.For<IOutput>();
 		var game = new Game();
 		
-		game.PlayMove("X", game.Board.First(t => t is { X: 0, Y: 0 }));
-		game.PlayMove("O", game.Board.First(t => t is { X: 1, Y: 0 }));
-		game.PlayMove("X", game.Board.First(t => t is { X: 2, Y: 1 }));
+		game.PlayMove("X", game.GetTile(0, 0));
+		game.PlayMove("O", game.GetTile(1, 0));
+		game.PlayMove("X", game.GetTile(2, 1));
 		
 		var board = new Board(outputMock, game);
 

@@ -9,7 +9,7 @@ public class GameTests
 	{
 		// Arrange
 		var game = new Game();
-		var tile = game.Board.First(t => t is { X: 0, Y: 0 });
+		var tile = game.GetTile(0, 0);
 
 		// Act
 		game.PlayMove("X", tile);
@@ -31,5 +31,18 @@ public class GameTests
 		Assert.NotEqual(
 			["0,0", "0,1", "0,2", "1,0", "1,1", "1,2", "2,0", "2,1", "2,2"],
 			game.availableTiles.Select(t => t.X + "," + t.Y));
+	}
+	
+	[Fact]
+	public void GetTile_GetsTile()
+	{
+		// Arrange
+		var game = new Game();
+
+		// Act
+		var result = game.GetTile(2, 1);
+
+		// Assert
+		Assert.Equal(game.Board.First(t => t is { X: 2, Y: 1 }), result);
 	}
 }
