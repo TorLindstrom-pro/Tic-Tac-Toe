@@ -5,23 +5,23 @@ namespace TicTacToe.Models;
 public class GameManager
 {
 	
-	private readonly Board _board;
+	private readonly Renderer _renderer;
 	private readonly IOutput _output;
 	private readonly Game _game;
 	public  Bot? Winner;
 	
-	public GameManager(IOutput output, Game game, Board board)
+	public GameManager(IOutput output, Game game, Renderer renderer)
 	{
 		_output = output;
 		_game = game;
-		_board = board;
+		_renderer = renderer;
 	}
 	
 	public GameManager()
 	{
 		_output = new Output();
 		_game = new Game();
-		_board = new Board(_output, _game);
+		_renderer = new Renderer(_output, _game);
 	}
 
 	public  void PlayGame()
@@ -32,7 +32,7 @@ public class GameManager
 		while (_game.AvailableTiles.Count > 0)
 		{
 			_game.PlayMove(currentBot.Marker, _game.GetAvailableTile());
-			_board.Render();
+			_renderer.Render();
 			
 			if (_game.CheckWin(currentBot.Marker))
 			{

@@ -4,14 +4,14 @@ using TicTacToe.Models;
 
 namespace Tests.UnitTests;
 
-public class BoardTests
+public class RendererTests
 {
 	[Fact]
 	public void Render_PrintsGrid()
 	{
 		// Arrange
 		var outputMock = Substitute.For<IOutput>();
-		var board = new Board(outputMock, new Game());
+		var board = new Renderer(outputMock, new Game());
 
 		// Act
 		board.Render();
@@ -40,7 +40,7 @@ public class BoardTests
 		game.PlayMove("O", game.GetTile(1, 0));
 		game.PlayMove("X", game.GetTile(2, 1));
 		
-		var board = new Board(outputMock, game);
+		var board = new Renderer(outputMock, game);
 
 		// Act
 		board.Render();

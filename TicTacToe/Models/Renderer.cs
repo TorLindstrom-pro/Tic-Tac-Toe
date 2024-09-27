@@ -2,7 +2,7 @@
 
 namespace TicTacToe.Models;
 
-public class Board(IOutput output, Game game)
+public class Renderer(IOutput output, Game game)
 {
 	private const string HorizontalDivider = "---+---+---";
 

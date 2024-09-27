@@ -12,7 +12,7 @@ public class GameManagerTests
 		// Arrange
 		var game = new Game();
 		var outputMock = Substitute.For<IOutput>();
-		var board = new Board(outputMock, game);
+		var board = new Renderer(outputMock, game);
 
 		var gameManager = new GameManager(outputMock, game, board);
 
