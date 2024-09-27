@@ -21,4 +21,14 @@ public class Renderer(IOutput output, Game game)
 	{
 		return game.Board.First(t => t.X == x && t.Y == y).Marker ?? " ";
 	}
+
+	public void PrintWinner(Bot winner)
+	{
+		output.Print($"Player {winner.Marker} wins!");
+	}
+
+	public void PrintDraw()
+	{
+		output.Print("It's a draw!");
+	}
 }

@@ -55,6 +55,36 @@ public class RendererTests
 			outputMock.Print("---+---+---");
 			outputMock.Print("   | X |   ");
 		});
-		
+	}
+
+	[Fact]
+	public void PrintWinner_PrintsWinnerMessage()
+	{
+		// Arrange
+		var outputMock = Substitute.For<IOutput>();
+		var game = new Game();
+		var renderer = new Renderer(outputMock, game);
+		var winner = new Bot("X");
+
+		// Act
+		renderer.PrintWinner(winner);
+
+		// Assert
+		outputMock.Received().Print("Player X wins!");
+	}
+
+	[Fact]
+	public void PrintDraw_PrintsDrawMessage()
+	{
+		// Arrange
+		var outputMock = Substitute.For<IOutput>();
+		var game = new Game();
+		var renderer = new Renderer(outputMock, game);
+
+		// Act
+		renderer.PrintDraw();
+
+		// Assert
+		outputMock.Received().Print("It's a draw!");
 	}
 }

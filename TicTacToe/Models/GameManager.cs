@@ -42,6 +42,7 @@ public class GameManager
 			currentBot = currentBot.NextBot;
 		}
 
-		_output.Print(Winner != null ? $"Player {Winner.Marker} wins!" : "It's a draw!");
+		if (Winner != null) _renderer.PrintWinner(Winner);
+		else _renderer.PrintDraw();
 	}
 }
