@@ -2,4 +2,4 @@
 
 using TicTacToe.Models;
 
-GameManager.PlayGame();
+new GameManager().PlayGame();

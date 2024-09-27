@@ -2,14 +2,45 @@
 
 namespace TicTacToe.Models;
 
-internal abstract class GameManager
+public class GameManager
 {
-	public static void PlayGame()
+	
+	private readonly Board _board;
+	private readonly IOutput _output;
+	private readonly Game _game;
+	public  Bot? Winner;
+	
+	public GameManager(IOutput output, Game game, Board board)
 	{
-		var output = new Output();
-		var game = new Game();
-		var board = new Board(output, game);
+		_output = output;
+		_game = game;
+		_board = board;
+	}
+	
+	public GameManager()
+	{
+		_output = new Output();
+		_game = new Game();
+		_board = new Board(_output, _game);
+	}
 
-		board.Render();
+	public  void PlayGame()
+	{
+		var currentBot = new Bot("X").CreateNextBotLink("O");
+		
+		while (_game.AvailableTiles.Count > 0)
+		{
+			_game.PlayMove(currentBot.Marker, _game.GetAvailableTile());
+			_board.Render();
+			
+			if (_game.CheckWin(currentBot.Marker))
+			{
+				Winner = currentBot;
+				break;
+			}
+			currentBot = currentBot.NextBot;
+		}
+
+		_output.Print(Winner != null ? $"Player {Winner.Marker} wins!" : "It's a draw!");
 	}
 }
