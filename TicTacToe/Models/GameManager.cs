@@ -31,7 +31,7 @@ public class GameManager
 		
 		while (_game.AvailableTiles.Count > 0)
 		{
-			_game.PlayMove(currentBot.Marker, _game.GetAvailableTile());
+			_game.GetAvailableTile().Marker = currentBot.Marker;
 			_renderer.Render();
 			
 			if (_game.CheckWin(currentBot.Marker))

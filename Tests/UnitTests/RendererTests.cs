@@ -36,9 +36,9 @@ public class RendererTests
 		var outputMock = Substitute.For<IOutput>();
 		var game = new Game();
 		
-		game.PlayMove("X", game.GetTile(0, 0));
-		game.PlayMove("O", game.GetTile(1, 0));
-		game.PlayMove("X", game.GetTile(2, 1));
+		game.GetTile(0, 0).Marker = "X";
+		game.GetTile(1, 0).Marker = "O";
+		game.GetTile(2, 1).Marker = "X";
 		
 		var board = new Renderer(outputMock, game);
 

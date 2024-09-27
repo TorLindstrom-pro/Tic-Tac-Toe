@@ -12,7 +12,7 @@ public class GameTests
 		var tile = game.GetTile(0, 0);
 
 		// Act
-		game.PlayMove("X", tile);
+		tile.Marker = "X";
 
 		// Assert
 		Assert.Equal("X", tile.Marker);
@@ -67,9 +67,9 @@ public class GameTests
 	{
 		// Arrange
 		var game = new Game();
-		game.PlayMove("X", game.GetTile(x1, y1));
-		game.PlayMove("X", game.GetTile(x2, y2));
-		game.PlayMove("X", game.GetTile(x3, y3));
+		game.GetTile(x1, y1).Marker = "X";
+		game.GetTile(x2, y2).Marker = "X";
+		game.GetTile(x3, y3).Marker = "X";
 
 		// Act
 		var result = game.CheckWin("X");
@@ -86,9 +86,9 @@ public class GameTests
 	{
 		// Arrange
 		var game = new Game();
-		game.PlayMove("X", game.GetTile(x1, y1));
-		game.PlayMove("X", game.GetTile(x2, y2));
-		game.PlayMove("X", game.GetTile(x3, y3));
+		game.GetTile(x1, y1).Marker = "X";
+		game.GetTile(x2, y2).Marker = "X";
+		game.GetTile(x3, y3).Marker = "X";
 
 		// Act
 		var result = game.CheckWin("X");
