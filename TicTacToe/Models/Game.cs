@@ -4,15 +4,15 @@ public class Game
 {
 	public List<Tile> Board { get; } =
 	[
-		new Tile(0, 0),
-		new Tile(0, 1),
-		new Tile(0, 2),
-		new Tile(1, 0),
-		new Tile(1, 1),
-		new Tile(1, 2),
-		new Tile(2, 0),
-		new Tile(2, 1),
-		new Tile(2, 2)
+		new(0, 0),
+		new(0, 1),
+		new(0, 2),
+		new(1, 0),
+		new(1, 1),
+		new(1, 2),
+		new(2, 0),
+		new(2, 1),
+		new(2, 2)
 	];
 
 	public List<Tile> availableTiles { get; set; }
